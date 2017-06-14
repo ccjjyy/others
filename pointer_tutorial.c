@@ -71,3 +71,4 @@ void printArray2(int (*pointer)[4], int n){
 
 
 
+
