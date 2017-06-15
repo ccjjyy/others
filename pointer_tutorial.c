@@ -135,3 +135,44 @@ void one(){
 void two(){
 	puts("The two function.");
 }
+
+
+//----------------------------------------------------
+// How to use the void pointer in function parameters?
+//----------------------------------------------------
+
+#include "stdio.h" 
+
+void half(void *p, char type);
+
+int main(){
+	int i = 20;
+	float f = 10.0;
+	
+	printf("\n%d", i);
+	printf("\n%f", f);
+	
+	half(&i, 'i');
+	half(&f, 'f');
+	
+	printf("\n%d", i);
+	printf("\n%f", f);
+	
+	return 0;
+}
+
+
+void half(void *p, char type){
+	switch(type){
+		
+		case 'i':{
+			*((int *)p) /=2;  // We need typecasting to dereference
+			break;
+		}
+		
+		case 'f':{
+			*((float *)p) /=2;
+			break;
+		}
+	}
+}
