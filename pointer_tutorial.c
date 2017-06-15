@@ -87,3 +87,51 @@ void printStrings(char *p[], int len){
 		printf("%s ", p[count]);
 	}
 }
+
+
+//----------------------------------
+// How to use the function pointers?
+//----------------------------------
+
+#include "stdio.h" 
+
+void chosingFunction(void (*p)());
+void one();
+void two();
+
+int main(){
+	void (*p)();  // Notice the difference of: void *p()
+	int choose;
+	
+	for(;;){
+		printf("\nEnter an integer 1 or 2, 0 to exit: ");
+		scanf("%d", &choose);
+		
+		if(choose==0){
+			break;
+		}
+		else if(choose==1){
+			p = one;
+		}
+		else if(choose==2){
+			p = two;
+		}
+		
+		chosingFunction(p);
+	}
+	
+	return 0;
+}
+
+
+void chosingFunction(void (*p)()){
+	p();
+}
+
+void one(){
+	puts("The one function.");
+}
+
+void two(){
+	puts("The two function.");
+}
