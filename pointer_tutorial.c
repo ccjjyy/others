@@ -63,3 +63,27 @@ void printArray2(int (*pointer)[4], int n){
 		printf("\n%d", *p++);
 	}
 }
+
+
+//-------------------------------
+// How to use the array pointers?
+//-------------------------------
+
+#include "stdio.h" 
+
+void printStrings(char *p[], int len);
+
+int main(){
+	char *pointers[4] = {"your", "one", "brown", "cat"};
+	printStrings(pointers, 4);
+	
+	return 0;
+}
+
+void printStrings(char *p[], int len){
+	int count;
+	
+	for(count=0; count<len; count++){
+		printf("%s ", p[count]);
+	}
+}
